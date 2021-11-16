@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yoga Class Registration</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Yoga Registrations</a>
+
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a
+            class="nav-item nav-link active"
+            style="cursor: pointer"
+            id="homeLink"
+            >Home <span class="sr-only">(current)</span></a
+          >
+          <a
+            class="nav-item nav-link"
+            style="cursor: pointer"
+            id="newRegistrationLink"
+            >New Registration</a
+          >
+        </div>
+      </div>
+    </nav>
+    <div class="container p-3">
+      <div id="registerRoute">
+        <h1 class="mb-4">Register for Yoga Classes</h1>
+        <form method="post" id="form" class="container">
+          <div class="mb-3">
+            <label for="firstName">First Name</label>
+            <input
+              class="form-control"
+              id="firstName"
+              name="firstName"
+              type="text"
+            />
+            <span id="errorFirstName" class="text-danger"></span>
+          </div>
+          <div class="mb-3">
+            <label for="lastName">Last Name</label>
+            <input
+              class="form-control"
+              id="lastName"
+              name="lastName"
+              type="text"
+            />
+            <span id="errorLastName" class="text-danger"></span>
+          </div>
+          <div class="mb-3">
+            <label for="age">Age</label>
+            <input
+              class="form-control"
+              id="age"
+              name="age"
+              type="number"
+              min="18"
+              max="65"
+            />
+            <span id="errorAge" class="text-danger"></span>
+          </div>
+
+          <div class="mb-3">
+            <label for="phone">Phone Number</label>
+            <input class="form-control" id="phone" name="phone" type="tel" />
+            <span id="errorPhone" class="text-danger"></span>
+          </div>
+          <div class="mb-3">
+            <label for="batch">Batch</label>
+            <select class="form-control" id="batch" name="batch">
+              <option value="6">6AM - 7AM</option>
+              <option value="7">7AM - 8AM</option>
+              <option value="8">8AM - 9AM</option>
+              <option value="5">5PM - 6PM</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <input id="paid" name="paid" type="checkbox" />
+            <label for="paid" title="Rs 500 paid">Fee Paid</label>
+          </div>
+          <input
+            id="submit"
+            class="btn btn-primary d-block m-auto"
+            style="width: 200px"
+            type="submit"
+            value="Submit"
+          />
+        </form>
+      </div>
+      <div id="homeRoute" class="d-none">
+        <table class="table">
+          <thead class="thead-dark">
+            <th scope="col">S.No</th>
+            <th scope="col">Name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Batch</th>
+            <th scope="col">Payment Status</th>
+          </thead>
+          <tbody id="usersTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+    <script
+      type="text/javascript"
+      src="{{url_for('static', filename='form.js')}}"
+    ></script>
+  </body>
+</html>
